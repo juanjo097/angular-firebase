@@ -2,5 +2,9 @@ export interface Book {
     $key : string,
     book_name : string,
     isbn_10 : number,
-    author : 
+    author_name : string,
+    publication_date : Date,
+    binding_type : string,
+    in_stock : string,
+    lenguages : Array<any>
 }

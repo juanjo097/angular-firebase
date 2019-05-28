@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { EditBookComponent } from './components/edit-book/edit-book.component';
 import { BookListComponent } from './components/book-list/book-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //angular material module
 /*
@@ -34,7 +35,9 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     AngularMaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -13,8 +13,8 @@ export class BookService {
   constructor(private db : AngularFireDatabase) { }
 
   /* Create book */
-  AddBook(book : Book)
-  {
+
+  AddBook(book: Book) {
     this.booksRef.push({
       book_name: book.book_name,
       isbn_10: book.isbn_10,
@@ -23,12 +23,11 @@ export class BookService {
       binding_type: book.binding_type,
       in_stock: book.in_stock,
       languages: book.lenguages
-    }).catch(error =>
-      {
-          this.errorMgmt(error);
-      }
-    );
+    }).catch(error => {
+      this.errorMgmt(error);
+    })
   }
+
 
   /* Get book by id */
   GetBook(id : string)
@@ -45,6 +44,7 @@ export class BookService {
   }
 
   /* Update book */
+  /*
   UpdateBook(id, book: Book)
   {
     this.bookRef.update({
@@ -58,10 +58,10 @@ export class BookService {
     }).catch(error =>
       {
           this.errorMgmt(error);
-        }
-      );
+      }
+    );
   }
-
+  */
   DeleteBook(id : string)
   {
     this.bookRef = this.db.object('books-list/' + id);

@@ -26,18 +26,22 @@ export class BookService {
       publication_date: book.publication_date,
       binding_type: book.binding_type,
       in_stock: book.in_stock,
-      languages: book.lenguages
+      lenguages: book.lenguages
     };
 
     //parsing json body to string
     let body_string = JSON.parse(replaceAll(JSON.stringify(body_json),"undefined","null"));
 
+    console.log(body_string);
+
     //just push the values in database in firebase
+    /*
     this.booksRef.push({
       body_string
     }).catch(error => {
       this.errorMgmt(error);
     })
+    */
   }
 
 

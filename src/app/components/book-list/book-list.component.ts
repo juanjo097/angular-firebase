@@ -32,7 +32,7 @@ export class BookListComponent
     {
       books.forEach(item =>{
         let a = item.payload.toJSON();
-        
+        ///
         a['$key'] = item.key;
 
         this.BookData.push(a as Book);

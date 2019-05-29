@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
 import { BookService } from '../../shared/book.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export interface Lenguage {
   name: string;
@@ -109,7 +109,8 @@ export class AddBookComponent implements OnInit
   /* Submit form with data if valid*/
   submitBook()
   {
-    if (this.bookForm.valid){
+    if (this.bookForm.valid)
+    {
       console.log(this.bookForm.value);
       this.bookAPI.AddBook(this.bookForm.value);
       this.resetForm();

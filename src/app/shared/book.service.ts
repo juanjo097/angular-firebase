@@ -35,13 +35,13 @@ export class BookService {
     console.log(body_string);
 
     //just push the values in database in firebase
-    /*
+
     this.booksRef.push({
       body_string
     }).catch(error => {
       this.errorMgmt(error);
     })
-    */
+
   }
 
 
@@ -89,7 +89,8 @@ export class BookService {
 
 
   /* Error manager */
-  private errorMgmt(error) {
+  private errorMgmt(error)
+  {
     console.log(error)
   }
 

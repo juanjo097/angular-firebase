@@ -13,7 +13,8 @@ export interface Lenguage {
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.scss']
 })
-export class AddBookComponent implements OnInit {
+export class AddBookComponent implements OnInit
+{
 
   visible = true;
   selectable = true;
@@ -33,7 +34,8 @@ export class AddBookComponent implements OnInit {
 
   constructor(public fb: FormBuilder, private bookAPI: BookService) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.bookAPI.GetBookList();
     this.submitBookForm();
   }
@@ -51,7 +53,8 @@ export class AddBookComponent implements OnInit {
   }
 
   /*NgForm to send data*/
-  submitBookForm() {
+  submitBookForm()
+  {
     this.bookForm = this.fb.group({
       book_name: ['', [Validators.required]],
       isbn_10: ['', [Validators.required]],
@@ -94,7 +97,8 @@ export class AddBookComponent implements OnInit {
   }
 
   /* Reset form */
-  resetForm() {
+  resetForm()
+  {
     this.languageArray = [];
     this.bookForm.reset();
     Object.keys(this.bookForm.controls).forEach(key => {
@@ -103,7 +107,8 @@ export class AddBookComponent implements OnInit {
   }
 
   /* Submit form with data if valid*/
-  submitBook() {
+  submitBook()
+  {
     if (this.bookForm.valid){
       console.log(this.bookForm.value);
       this.bookAPI.AddBook(this.bookForm.value);

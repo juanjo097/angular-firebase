@@ -15,7 +15,11 @@ export class BookService {
   /* Create book */
 
   AddBook(book: Book) {
-    this.booksRef.push({
+    //replacing all invalid caracters
+    const replaceAll  =(s="",f="",r="")=>  s.replace(new RegExp(f.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), r);
+
+    //build body json
+    let body_json = {
       book_name: book.book_name,
       isbn_10: book.isbn_10,
       author_name: book.author_name,
@@ -23,6 +27,14 @@ export class BookService {
       binding_type: book.binding_type,
       in_stock: book.in_stock,
       languages: book.lenguages
+    };
+
+    //parsing json body to string
+    let body_string = JSON.parse(replaceAll(JSON.stringify(body_json),"undefined","null"));
+
+    //just push the values in database in firebase
+    this.booksRef.push({
+      body_string
     }).catch(error => {
       this.errorMgmt(error);
     })

@@ -44,7 +44,6 @@ export class BookService {
   }
 
   /* Update book */
-  /*
   UpdateBook(id, book: Book)
   {
     this.bookRef.update({
@@ -61,7 +60,6 @@ export class BookService {
       }
     );
   }
-  */
   DeleteBook(id : string)
   {
     this.bookRef = this.db.object('books-list/' + id);

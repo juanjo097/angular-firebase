@@ -68,7 +68,7 @@ export class EditBookComponent implements OnInit {
     });
   }
 
-  /* Add language */
+  // a lenguageeee
   add(event: MatChipInputEvent): void
   {
 
@@ -79,7 +79,7 @@ export class EditBookComponent implements OnInit {
     {
       this.languageArray.push({name: value.trim()});
     }
-    // Reset the input value
+    // To reset initial values
     if (input)
     {
       input.value = '';
@@ -87,7 +87,7 @@ export class EditBookComponent implements OnInit {
 
   }
 
-  /* Remove language */
+  //remove lenguageeee
   remove(language: any): void {
     const index = this.languageArray.indexOf(language);
 
@@ -97,13 +97,13 @@ export class EditBookComponent implements OnInit {
 
   }
 
-  /* Get errors */
+  //get and handling errors
   public handleError = (controlName: string, errorName: string) =>
   {
     return this.editBookForm.controls[controlName].hasError(errorName);
   }
 
-  /* Date */
+  // format date
   formatDate(e) {
     var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
     this.editBookForm.get('publication_date').setValue(convertDate, {

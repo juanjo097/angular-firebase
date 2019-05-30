@@ -11,22 +11,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .mat-sidenav-container{
   height:100%;
-  display:flex;
   flex:1 1 auto;
 }
 .mat-nav-list .mat-list-item{
   font-size:15px;
 }
 .nav-tool-items{
-  display:inline-block;
-  margin-right:13px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
 }
 .user-profile{
   margin-left:15px;
   cursor:pointer;
 }
 .hamburger{
-  visibility:hidden !important;
+  visibility:visible !important;
 }
 .mat-sidenav,.mat-sidenav-content{
   padding:15px;
@@ -128,7 +130,7 @@ body .push-right{
 }
 @media (max-width:767px){
   .nav-tool-items{
-    margin-right:0;
+    margin-right:44px;
   }
   .hamburger{
     visibility:visible !important;

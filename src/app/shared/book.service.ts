@@ -13,35 +13,19 @@ export class BookService {
   constructor(private db : AngularFireDatabase) { }
 
   /* Create book */
-
-  AddBook(book: Book) {
-    //replacing all invalid caracters
-    const replaceAll  =(s="",f="",r="")=>  s.replace(new RegExp(f.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), r);
-
-    //build body json
-    let body_json = {
+  AddBook(book: Book, lenguages: Array<any>) {
+    //just push the values in database in firebase
+    this.booksRef.push({
       book_name: book.book_name,
       isbn_10: book.isbn_10,
       author_name: book.author_name,
       publication_date: book.publication_date,
       binding_type: book.binding_type,
       in_stock: book.in_stock,
-      lenguages: book.lenguages
-    };
-
-    //parsing json body to string
-    let body_string = JSON.parse(replaceAll(JSON.stringify(body_json),"undefined","null"));
-
-    console.log(body_string);
-
-    //just push the values in database in firebase
-
-    this.booksRef.push({
-      body_string
+      lenguages: lenguages
     }).catch(error => {
       this.errorMgmt(error);
     })
-
   }
 
 

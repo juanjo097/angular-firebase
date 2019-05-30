@@ -111,15 +111,12 @@ export class AddBookComponent implements OnInit
   {
     if (this.bookForm.valid)
     {
-      console.log(this.bookForm.value);
-      this.bookAPI.AddBook(this.bookForm.value);
+      this.bookAPI.AddBook(this.bookForm.value, this.bookForm.value['languages']);
       this.resetForm();
-      console.log('Success', this.bookForm.value);
     }
     else
     {
-      console.log('Error submit', this.bookForm.value);
-      console.log('Available lenguages : ');
+      console.log(this.bookForm.value);
     }
   }
 

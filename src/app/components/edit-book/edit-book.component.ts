@@ -29,7 +29,12 @@ export class EditBookComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   selectedBindingType: string;
   editBookForm: FormGroup;
-  BindingType: any = ['Paperback', 'Case binding', 'Perfect binding', 'Saddle stitch binding', 'Spiral binding'];
+  BindingType: any = ['Paperback',
+                      'Case binding',
+                      'Perfect binding',
+                      'Saddle stitch binding',
+                      'Spiral binding'
+                    ];
 
   ngOnInit() {
     this.updateBookForm();
@@ -44,7 +49,6 @@ export class EditBookComponent implements OnInit {
 
                 let id = this.actvR.snapshot.paramMap.get('id');
                 this.API.GetBook(id).valueChanges().subscribe((data)=>{
-                  console.log(data)
                   this.languageArray = data.lenguages;
                   this.editBookForm.setValue(data);
                 },
@@ -71,6 +75,7 @@ export class EditBookComponent implements OnInit {
   // a lenguageeee
   add(event: MatChipInputEvent): void
   {
+
 
     var input: any = event.input;
     var value: any = event.value;

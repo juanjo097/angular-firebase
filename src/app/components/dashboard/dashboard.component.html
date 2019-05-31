@@ -1,3 +1,19 @@
-<p>
-  dashboard works!
-</p>
+<app-main-nav>
+  <div class="row" *ngIf="authService.userData as user">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <img class="mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="media-body">
+          <h1>Hello again: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+          <p>User ID: <strong>{{user.uid}}</strong></p>
+          <p>Email: <strong>{{user.email}}</strong></p>
+          <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

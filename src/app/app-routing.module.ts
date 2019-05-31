@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'add-book', component: AddBookComponent, canActivate: [AuthGuard] },
   { path: 'edit-book/:id', component: EditBookComponent,canActivate: [AuthGuard] },
   { path: 'books-list', component: BookListComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/sign-in', pathMatch: 'full' }
 ];
 
 @NgModule({

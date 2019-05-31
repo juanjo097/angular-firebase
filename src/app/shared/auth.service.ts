@@ -138,6 +138,12 @@ export class AuthService {
     );
   }
 
+  // Sign in wt¿ith facebook
+  FacebookAuth()
+  {
+    return this.AuthLogin( new auth.FacebookAuthProvider());
+  }
+
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore +
@@ -161,6 +167,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
+      window.alert('LOGOUT SUCCESSFUL');
       this.router.navigate(['sign-in']);
     })
   }
@@ -170,9 +177,8 @@ export class AuthService {
   get isLogged():boolean
   {
     const user = JSON.parse(localStorage.getItem('user'));
-
     return (user !== null && user.emailVerified !== false) ? true : false;
-    
+
   }
 
 }

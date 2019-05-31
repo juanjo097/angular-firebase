@@ -165,5 +165,14 @@ export class AuthService {
     })
   }
 
+  /* Function that returns a bool val when the
+  user is logged & verified */
+  get isLogged():boolean
+  {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    return (user !== null && user.emailVerified !== false) ? true : false;
+    
+  }
 
 }

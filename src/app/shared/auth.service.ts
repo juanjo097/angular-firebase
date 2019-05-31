@@ -69,7 +69,7 @@ export class AuthService {
       (_res) =>
       {
           this.SendVerificationMail();
-          this.SetUserData(result.user);
+          this.SetUserData(_res.user);
       },
       (_err) =>
       {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../shared/auth.service';
 
 @Component({
   selector: 'app-sig-in',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigInComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authServ : AuthService) { }
 
   ngOnInit() {
   }

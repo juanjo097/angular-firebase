@@ -43,16 +43,22 @@ export class AuthService {
       (_res) =>
       {
         this.ngZone.run(
-          ()=>
+          (_resp)=>
           {
             this.router.navigate(['dashboard']);
+          },
+          (_err)=>
+          {
+            console.log(_err);
           }
+
         );
         this.SetUserData(_res.user);
       },
       (_err) =>
       {
-        console.log('FATAL ERROR: ',_err);
+        window.alert('SignIn: Invalid username or password.');
+        //console.log('FATAL ERROR: ',_err);
       }
     ).catch(
       (error) =>

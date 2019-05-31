@@ -1,2 +1,2 @@
 # angular-firebase
-Angular CRUD App with Firebase as database.
+Angular CRUD & authentication with firebase as storage. 

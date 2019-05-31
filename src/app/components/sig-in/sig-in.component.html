@@ -2,37 +2,39 @@
   <div class="displayTableCell">
     <div class="authBlock">
       <h3>Sign In</h3>
-      <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Username" #userName required>
-      </div>
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPassword required>
-      </div>
-      <!-- Calling SignIn Api from AuthService -->
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Log in" (click)="authServ.SignIn(userName.value, userPassword.value)">
-      </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-      <!-- Calling GoogleAuth Api from Auth -->
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authServ.GoogleAuth()">
-          <i class="fab fa-google-plus-g"></i>
-          Log in with Google
-        </button>
-      </div>
-      <div class="forgotPassword">
-        <span routerLink="/forgot-password">Forgot Password?</span>
-      </div>
+      <form [formGroup]="signInForm" (ngSubmit)="submitFormSignIn()" #NgForm="ngForm" novalidate>
+        <div class="formGroup">
+          <input type="text" class="formControl" placeholder="Username" formControlName="user">
+        </div>
+        <div class="formGroup">
+          <input type="password" class="formControl" placeholder="Password" formControlName="password" (keyup.enter)="submitFormSignIn()" required>
+        </div>
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="formGroup">
+          <input type="button" class="btn btnPrimary" value="Log in" (click)="submitFormSignIn()" [disabled]="">
+        </div>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">Or</span></span>
+        </div>
+        <!-- Calling GoogleAuth Api from Auth -->
+        <div class="formGroup">
+          <button type="button" class="btn googleBtn" (click)="authServ.GoogleAuth()">
+            <i class="fab fa-google-plus-g"></i>
+            Log in with Google
+          </button>
+        </div>
+        <div class="forgotPassword">
+          <span routerLink="/forgot-password">Forgot Password?</span>
+        </div>
+      </form>
     </div>
     <div class="redirectToLogin">
       <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
     </div>
     <footer class="page-footer font-small text-light">
-      <div class="footer-copyright text-center py-3  text-light">© 2019:
-        <a href="https://github.com/juanjo097/angular-firebase" target="_blank" class="text-light">
-          GitHub.com  <i class="fab fa-github"></i></a>
+      <div class="footer-copyright text-center py-3  text-light"> Visit my
+        <a href="https://github.com/juanjo097" target="_blank" class="text-light">
+          GitHub  <i class="fab fa-github"></i></a>
       </div>
     </footer>
   </div>

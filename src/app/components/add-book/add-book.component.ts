@@ -32,7 +32,8 @@ export class AddBookComponent implements OnInit
 
   BindingType: any = ['Paperback', 'Case binding', 'Perfect binding', 'Saddle stitch binding', 'Spiral binding'];
 
-  constructor(public fb: FormBuilder, private bookAPI: BookService) { }
+  constructor(public fb: FormBuilder,
+              private bookAPI: BookService) { }
 
   ngOnInit()
   {

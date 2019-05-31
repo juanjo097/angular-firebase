@@ -422,6 +422,10 @@ input:-moz-placeholder {
   border-bottom: 1px solid #dde0e2;
   cursor: pointer;
 }
+.btnPrimary:disabled
+{
+  background: gray!important;
+}
 
 .sidebar .nav-link.active,
 .sidebar a:hover,

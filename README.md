@@ -1,5 +1,5 @@
 
-# Angular Authentication & CRUD with Firebse
+# Angular Authentication & CRUD with Firebase
 Angular 7 CRUD (Create, Read, Update and Delete) app with Angular Material 7 and Firebase real-time NoSQL database (version 6.0.2).
 
 This is an example with a Book Store, but you can adapt it to your purpose.

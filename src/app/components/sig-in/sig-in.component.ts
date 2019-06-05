@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CryptoService } from '../../shared/crypto.service';
 
 @Component({
   selector: 'app-sig-in',
@@ -12,10 +13,12 @@ export class SigInComponent implements OnInit {
   signInForm : FormGroup;
 
   constructor(public authServ : AuthService,
-              public fb : FormBuilder) { }
+              public fb : FormBuilder,
+              public crypto: CryptoService) { }
 
   ngOnInit() {
     this.authForm();
+    this.crypto.supportsCrypto();
   }
 
   authForm()
@@ -33,7 +36,7 @@ export class SigInComponent implements OnInit {
 
   submitFormSignIn()
   {
-    if(!this.signInForm.valid)
+    if(this.signInForm.invalid)
     {
       this.invalidForm();
     }
@@ -45,12 +48,5 @@ export class SigInComponent implements OnInit {
     }
 
   }
-
-
-  /* Handler errors */
-  public handleError = (controlName: string, errorName: string) => {
-    return this.signInForm.controls[controlName].hasError(errorName);
-  }
-
 
 }

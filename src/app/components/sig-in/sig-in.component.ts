@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CryptoService } from '../../shared/crypto.service';
 
 @Component({
   selector: 'app-sig-in',
@@ -13,12 +12,10 @@ export class SigInComponent implements OnInit {
   signInForm : FormGroup;
 
   constructor(public authServ : AuthService,
-              public fb : FormBuilder,
-              public crypto: CryptoService) { }
+              public fb : FormBuilder) { }
 
   ngOnInit() {
     this.authForm();
-    this.crypto.supportsCrypto();
   }
 
   authForm()
